@@ -1,0 +1,119 @@
+---
+import astroLogo from '../assets/astro.svg';
+---
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<div id="container">
+
+	<main>
+		<section id="hero">
+			<h1>Breno Casciello</h1>
+			<p class="intro">
+				I'm a Mechanical Engineering student at Stanford who loves building - from rockets and
+				underwater drones to diagnostics devices and e-foils. My work blends hands-on prototyping,
+				CAD design, and embedded systems with a drive to turn ideas into reality.
+			</p>
+		</section>
+
+		<section id="experience" class="box">
+			<h2>Experience</h2>
+			<ul>
+				<li>
+					<strong>Research Assistant, Stanford HyPEL</strong> - Built a neonatal diagnostic device
+					with electrochemical & infrared sensors; cut IR sensor delay from 8s to 1.5s.
+					<a href="/experience/hypel">Read more -></a>
+				</li>
+				<li>
+					<strong>Hardware Engineering Intern, Gabriel Tech</strong> - Designed vandal-resistant
+					smart security pole, reducing setup time by 50% and costs by 25%.
+					<a href="/experience/gabriel">Read more -></a>
+				</li>
+				<li>
+					<strong>Mechanical Design Engineer, SSI Rocket Team</strong> - Led design of landing
+					legs for 10,000 ft VTVL rocket recovery.
+					<a href="/experience/ssi">Read more -></a>
+				</li>
+			</ul>
+		</section>
+
+		<section id="projects" class="box">
+			<h2>Projects</h2>
+			<ul>
+				<li>
+					<strong>Autonomous E-Foil Surfboard</strong> - Designing a hydrofoil board with
+					gyro + sonar sensors for self-stabilized rides from 0-15 mph.
+					<a href="/projects/efoil">Read more -></a>
+				</li>
+				<li>
+					<strong>Universal Skateboard Fenders</strong> - Cast and milled 6061-Al fenders to
+					mitigate vibration; adaptable across models for scalable production.
+					<a href="/projects/fenders">Read more -></a>
+				</li>
+				<li>
+					<strong>Cybertruck Bed Analysis</strong> - Identified design flaws in Tesla's pickup
+					bed and proposed mechanical fixes.
+					<a href="/projects/cybertruck">Read more -></a>
+				</li>
+			</ul>
+		</section>
+
+		<section id="contact" class="box">
+			<h2>Contact</h2>
+			<p>Let's connect! I'm always open to collaborations and new ideas.</p>
+			<ul>
+				<li><a href="mailto:brenocas@stanford.edu">Email</a></li>
+				<li><a href="https://www.linkedin.com/in/breno-casciello">LinkedIn</a></li>
+				<li><a href="https://github.com/">GitHub</a></li>
+			</ul>
+		</section>
+	</main>
+</div>
+
+<style>
+	#container {
+	  font-family: 'Source Sans Pro', sans-serif;
+	  color: #111;              /* plain black text */
+	  padding: 2rem;
+	  line-height: 1.5;
+	  max-width: 700px;         /* keeps it readable on large screens */
+	  margin: 0;                /* left-align content */
+	  text-align: left;         /* ensure text is left-aligned */
+	}
+  
+	h1 {
+	  font-size: 2.5rem;
+	  margin-bottom: 1rem;
+	}
+  
+	h2 {
+	  font-size: 1.5rem;
+	  margin-top: 2.5rem;
+	  margin-bottom: 1rem;
+	}
+  
+	p, li {
+	  font-size: 1rem;
+	  margin-bottom: 1rem;
+	}
+  
+	ul {
+	  list-style-type: none;
+	  padding: 0;
+	  margin: 0;
+	}
+  
+	li {
+	  margin-bottom: 1.2rem;
+	}
+  
+	a {
+	  font-size: 0.9rem;
+	  color: inherit;           /* no color highlight */
+	  text-decoration: underline;
+	}
+  </style>
