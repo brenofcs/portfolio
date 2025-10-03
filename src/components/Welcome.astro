@@ -12,7 +12,7 @@ import astroLogo from '../assets/astro.svg';
 
 	<main>
 		<section id="hero">
-			<h1>Breno Casciello</h1>
+			<h1>Brneo Casciello</h1>
 			<p class="intro">
 				I have always been fascinated by machines from an early age. Now I try to build them.<br />
 				Currently a Senior studying Mechanical Engineering at Stanford.
@@ -22,10 +22,8 @@ import astroLogo from '../assets/astro.svg';
 		<section id="experience" class="box">
 			<h2>Experience</h2>
 			<ul>
-				<li>
-				  <a href="/experience/hydrastrike">
-				    <strong>Hydra Strike</strong> – Built an autonomous underwater drone (a UUV) for the US Navy.
-				  </a>
+				<li class="hydra">
+				  <strong><a href="/experience/hydrastrike">Hydra Strike</a></strong> – Built an autonomous underwater drone (a UUV) for the US Navy.
 				</li>
 				<li>
 					<strong>Research Assistant, Stanford HyPEL</strong> – Worked at Stanford's Hypersonics, Propulsion & Energy Lab (Hanson Lab).
@@ -123,7 +121,13 @@ import astroLogo from '../assets/astro.svg';
 	  color: inherit;
 	}
 
-	li a:hover {
-	  text-decoration: underline;
+	li.hydra {
+	  font-size: 1rem;
+	}
+
+	li.hydra a {
+	  text-decoration: none; /* no underline at all */
+	  color: inherit;
+	  display: inline-block; /* ensures it behaves like the text */
 	}
   </style>
