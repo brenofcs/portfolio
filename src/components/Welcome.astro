@@ -23,8 +23,9 @@ import astroLogo from '../assets/astro.svg';
 			<h2>Experience</h2>
 			<ul>
 				<li>
-				  <strong>Hydra Strike</strong> – Built an autonomous underwater drone (a UUV) for the US Navy.
-				  <a href="/experience/hydrastrike">Read more →</a>
+				  <a href="/experience/hydrastrike">
+				    <strong>Hydra Strike</strong> – Built an autonomous underwater drone (a UUV) for the US Navy.
+				  </a>
 				</li>
 				<li>
 					<strong>Research Assistant, Stanford HyPEL</strong> – Worked at Stanford's Hypersonics, Propulsion & Energy Lab (Hanson Lab).
@@ -114,6 +115,15 @@ import astroLogo from '../assets/astro.svg';
 	a {
 	  font-size: 0.9rem;
 	  color: inherit;           /* no color highlight */
+	  text-decoration: underline;
+	}
+
+	li a {
+	  text-decoration: none;
+	  color: inherit;
+	}
+
+	li a:hover {
 	  text-decoration: underline;
 	}
   </style>
