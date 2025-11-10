@@ -1,10 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import hydraImage from '../../assets/spideregghorizontal.jpg';
 ---
 
 <Layout>
   <main style="max-width: 700px; margin: 0 auto; padding: 2rem; font-family: 'Source Sans Pro', sans-serif;">
     <h1 style="font-weight: 400;">HydraStrike</h1>
+    <img src={hydraImage.src} alt="HydraStrike UUV" style="width: 100%; border-radius: 8px; margin: 1.5rem 0;" />
     <p>
       In 40 days, we built and open-water tested a 6-foot autonomous underwater drone (a UUV) for the U.S. Navy.<br />
       This page will soon include details on design, propulsion, bomb-bay actuation, sealing systems, CFD work,
