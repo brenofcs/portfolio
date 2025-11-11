@@ -7,14 +7,33 @@ import hydraImage from '../../assets/spideregghorizontal.jpg';
   <main style="max-width: 700px; margin: 0 auto; padding: 2rem; font-family: 'Source Sans Pro', sans-serif;">
     <h1 style="font-weight: 400;">HydraStrike</h1>
     <img src={hydraImage.src} alt="HydraStrike UUV" style="width: 100%; border-radius: 8px; margin: 1.5rem 0;" />
+
     <p>
-      HydraStrike is an advanced autonomous underwater vehicle (AUV) designed to perform complex underwater missions with high precision and reliability. Developed over a rigorous 40-day period for the U.S. Navy, this 6-foot long unmanned underwater vehicle (UUV) incorporates state-of-the-art propulsion technology and innovative bomb-bay actuation mechanisms.
+      HydraStrike developed SpiderEgg, a modular 21-inch torpedo-class UUV designed to deliver distributed undersea effects with high operational efficiency and low per-unit cost. The system accommodates up to three small kinetic effectors (“Spiders”) in a lower payload bay and an upper deck for FPV drones, sensor pods, or EW modules launchable from submarine tubes, large UUVs, surface vessels, or shore platforms.
     </p>
+
     <p>
-      The vehicle features robust sealing systems engineered to withstand extreme underwater pressure and harsh environmental conditions. Extensive computational fluid dynamics (CFD) analyses were performed to optimize the hydrodynamic profile, enhancing maneuverability and operational efficiency.
+      Within just 40 days, the team completed a full design–build–test cycle, producing a 1:3-scale working prototype that demonstrated autonomous navigation, top-speed runs, and range testing. Scaled performance indicates approximately 3.1× the operational range of the U.S. Navy’s Mk 48 torpedo. The overall design follows a platform-agnostic, open-architecture philosophy, optimized for mass production using COTS components.
     </p>
+
     <p>
-      Throughout the development process, emphasis was placed on integrating reliable control systems and ensuring structural integrity. The project successfully culminated in open-water testing, where HydraStrike demonstrated exceptional performance, validating its design and operational capabilities in real-world scenarios.
+      Mechanically, the vehicle integrates dual-actuated bomb-bay deployment, pressure-rated rotary shaft seals with dual-channel military-standard grooves, quiet electric propulsion, and modular bays enabling maintenance turnaround in under 15 minutes. All sensors and controls—including sonar, IMU, ESC, BMS, and drivetrain—operate through ROS 2 to support both autonomous and semi-autonomous mission modes.
+    </p>
+
+    <p>
+      A key innovation lies in the energetic coupling concept, where multiple Spiders coordinate their terminal detonations in time and space so that hydrodynamic interactions amplify the combined effect. Simulations by Stanford’s Flow Physics & Computational Lab showed that this method can achieve lethality comparable to a Mk 48 while using roughly half the explosive mass.
+    </p>
+
+    <p>
+      Operationally, the system can execute distributed mission kills—targeting specific subsystems—or synchronize swarm attacks for a decisive hard kill. The Spiders employ onboard mesh networking and FPV/thermal cueing to dynamically adjust targets during missions, while the parent capsule can provide re-tasking via masted thermal/EO sensors and redundant SATCOM, Iridium, HF, and VHF links.
+    </p>
+
+    <p>
+      HydraStrike’s work gained strong validation: over 180 stakeholder interviews—including 20 admirals and 30 acquisition officers—secured $100K in equity-free funding and a Cooperative Research and Development Agreement (CRADA) with the U.S. Navy to pursue full-scale development.
+    </p>
+
+    <p>
+      HydraStrike has paused operations.
     </p>
 
     <p>
