@@ -1,66 +1,68 @@
 ---
-import astroLogo from '../assets/astro.svg';
 ---
 
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-
 <div id="container">
-
 	<main>
 		<section id="hero">
 			<h1>Breno Casciello</h1>
 			<p class="intro">
-				I have always been fascinated by machines from an early age. Now I try to build them.<br />
+				I have always been fascinated by machines from an early age. Now I try to build them.
 				Currently a Senior studying Mechanical Engineering at Stanford.
 			</p>
 		</section>
 
-		<section id="experience" class="box">
+		<section id="experience">
 			<h2>Experience</h2>
 			<ul>
-				<li class="hydra">
-				  <a href="/experience/hydrastrike" target="_self" rel="noopener">
-				    <strong>HydraStrike</strong><br />Built an autonomous underwater drone (a UUV) for the US Navy.
-				  </a>
+				<li>
+					<a href="/experience/hydrastrike" target="_self" rel="noopener">
+						<span class="item-title">HydraStrike</span>
+						<span class="item-desc">Built an autonomous underwater drone (a UUV) for the US Navy.</span>
+					</a>
 				</li>
 				<li>
-				  <strong>Research Assistant, Stanford HyPEL</strong><br />Worked at Stanford's Hypersonics, Propulsion &amp; Energy Lab (Hanson Lab).
+					<span class="item-title">Research Assistant, Stanford HyPEL</span>
+					<span class="item-desc">Worked at Stanford's Hypersonics, Propulsion &amp; Energy Lab (Hanson Lab).</span>
 				</li>
 				<li>
-				  <a href="https://gabriel-com-br.translate.goog/camaleao/?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en-US" target="_blank" rel="noopener">
-				    <strong>Product Engineering Intern, Gabriel Tech</strong><br />
-				    Engineered a smart security pole from sketches to product, owning design and supply chain.
-				  </a>
+					<a href="https://gabriel-com-br.translate.goog/camaleao/?_x_tr_sl=pt&_x_tr_tl=en&_x_tr_hl=en-US" target="_blank" rel="noopener">
+						<span class="item-title">Product Engineering Intern, Gabriel Tech</span>
+						<span class="item-desc">Engineered a smart security pole from sketches to product, owning design and supply chain.</span>
+					</a>
 				</li>
 				<li>
-				  <a href="https://ssi-wiki.stanford.edu/w/index.php?title=Rockets_Team&mobileaction=toggle_view_desktop#Fountain_Hopper" target="_blank" rel="noopener"><strong>Mechanical Design Engineer, SSI Rocket Team</strong><br />Designed landing legs for a VTVL 10,000 ft model rocket.</a>
+					<a href="https://ssi-wiki.stanford.edu/w/index.php?title=Rockets_Team&mobileaction=toggle_view_desktop#Fountain_Hopper" target="_blank" rel="noopener">
+						<span class="item-title">Mechanical Design Engineer, SSI Rocket Team</span>
+						<span class="item-desc">Designed landing legs for a VTVL 10,000 ft model rocket.</span>
+					</a>
 				</li>
 			</ul>
 		</section>
 
-		<section id="projects" class="box">
+		<section id="projects">
 			<h2>Projects</h2>
 			<ul>
 				<li>
-				  <strong>Autonomous E-Foil Surfboard</strong><br />Designing a self-balancing e-foil surfboard.
+					<span class="item-title">Autonomous E-Foil Surfboard</span>
+					<span class="item-desc">Designing a self-balancing e-foil surfboard.</span>
 				</li>
 				<li>
-				  <strong>Universal Skateboard Fenders</strong><br />Built universal skateboard fenders.
+					<span class="item-title">Universal Skateboard Fenders</span>
+					<span class="item-desc">Built universal skateboard fenders.</span>
 				</li>
 				<li>
-				  <a href="https://drive.google.com/file/d/1QhJgs0obl36uyuQtEqZXNR9zNtYV5cox/view" target="_blank" rel="noopener"><strong>Cybertruck Bed Analysis</strong><br />Documented failure modes and proposed bolt-on fixes.</a>
+					<a href="https://drive.google.com/file/d/1QhJgs0obl36uyuQtEqZXNR9zNtYV5cox/view" target="_blank" rel="noopener">
+						<span class="item-title">Cybertruck Bed Analysis</span>
+						<span class="item-desc">Documented failure modes and proposed bolt-on fixes.</span>
+					</a>
 				</li>
 			</ul>
 		</section>
 
-		<section id="contact" class="box">
+		<section id="contact">
 			<h2>Contact</h2>
-			<p>Let's connect! I'm always open to collaborations and new ideas.</p>
-			<ul>
+			<p class="contact-text">Always open to collaborations and new ideas.</p>
+			<ul class="contact-links">
 				<li><a href="mailto:brenocas@stanford.edu">Email</a></li>
 				<li><a href="https://www.linkedin.com/in/breno-casciello-07646519b" target="_blank" rel="noopener">LinkedIn</a></li>
 			</ul>
@@ -70,61 +72,118 @@ import astroLogo from '../assets/astro.svg';
 
 <style>
 	#container {
-	  font-family: 'Source Sans Pro', sans-serif;
-	  color: #111;              /* plain black text */
-	  padding: 2rem;
-	  line-height: 1.5;
-	  max-width: 700px;         /* keeps it readable on large screens */
-	  margin: 0;                /* left-align content */
-	  text-align: left;         /* ensure text is left-aligned */
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		color: #111;
+		padding: 4.5rem 2.5rem 5rem;
+		max-width: 660px;
+		margin: 0;
+		line-height: 1.6;
 	}
-  
+
+	#hero {
+		margin-bottom: 4rem;
+	}
+
 	h1 {
-	  font-size: 2.2rem;
-	  font-weight: 400; /* not bold */
-	  margin-bottom: 1rem;
+		font-size: 2.6rem;
+		font-weight: 300;
+		letter-spacing: -0.03em;
+		margin: 0 0 1.1rem;
+		color: #0a0a0a;
 	}
-  
+
+	.intro {
+		font-size: 0.975rem;
+		color: #666;
+		line-height: 1.75;
+		margin: 0;
+		max-width: 520px;
+	}
+
+	section + section {
+		margin-top: 3rem;
+		padding-top: 2.5rem;
+		border-top: 1px solid #ebebeb;
+	}
+
 	h2 {
-	  font-size: 1.3rem;
-	  font-weight: 400; /* not bold */
-	  text-decoration: underline;
-	  margin-top: 2.5rem;
-	  margin-bottom: 1rem;
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+		color: #aaa;
+		margin: 0 0 1.4rem;
+		text-decoration: none;
 	}
-  
-	p, li {
-	  font-size: 1rem;
-	  margin-bottom: 1rem;
-	}
-  
+
 	ul {
-	  list-style-type: none;
-	  padding: 0;
-	  margin: 0;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
-  
+
 	li {
-	  margin-bottom: 1.2rem;
+		margin-bottom: 1.4rem;
 	}
-  
+
+	li:last-child {
+		margin-bottom: 0;
+	}
+
+	.item-title {
+		display: block;
+		font-size: 0.925rem;
+		font-weight: 500;
+		color: #111;
+		margin-bottom: 0.2rem;
+		transition: color 0.15s ease;
+	}
+
+	.item-desc {
+		display: block;
+		font-size: 0.875rem;
+		color: #888;
+		line-height: 1.55;
+	}
+
 	a {
-	  font-size: 0.9rem;
-	  color: inherit;           /* no color highlight */
-	  text-decoration: underline;
+		color: inherit;
+		text-decoration: none;
 	}
 
-	li a {
-	  text-decoration: none;
-	  color: inherit;
+	li a:hover .item-title {
+		color: #555;
+		text-decoration: underline;
+		text-decoration-color: #ccc;
+		text-underline-offset: 3px;
 	}
 
-	/* li.hydra {
-	  font-size: 1rem;
-	} */
-	li.hydra a {
-	  text-decoration: none !important;
-	  color: inherit;
-	  display: inline-block;
+	.contact-text {
+		font-size: 0.875rem;
+		color: #888;
+		margin: 0 0 1rem;
 	}
-  </style>
+
+	.contact-links {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	.contact-links li {
+		margin: 0;
+	}
+
+	.contact-links a {
+		font-size: 0.875rem;
+		color: #555;
+		text-decoration: underline;
+		text-decoration-color: #ddd;
+		text-underline-offset: 3px;
+		transition: color 0.15s ease, text-decoration-color 0.15s ease;
+	}
+
+	.contact-links a:hover {
+		color: #111;
+		text-decoration-color: #aaa;
+	}
+</style>
