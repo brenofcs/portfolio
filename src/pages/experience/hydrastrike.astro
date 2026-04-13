@@ -1,78 +1,246 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import hydraImage from '../../assets/spideregghorizontal.jpg';
 ---
 
 <Layout>
-  <main>
+  <div class="page">
     <a href="/" class="back-link">← Back</a>
-    <h1>HydraStrike</h1>
-    <img src={hydraImage.src} alt="HydraStrike UUV" />
 
-    <p>
-      HydraStrike developed SpiderEgg, a modular UUV designed to deliver distributed undersea effects with high operational efficiency and low per-unit cost. The system accommodates up to three small kinetic effectors ("Spiders") in a lower payload bay and an upper deck for FPV drones, sensor pods, or EW modules. The platform is launchable from submarine tubes, large UUVs, surface vessels, or shore platforms.
-    </p>
+    <!-- ── Hero / Context ── -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>SpiderEgg <span class="hero-by">by<br>Hydra Strike</span></h1>
+        <p class="hero-sub">
+          A modular unmanned underwater vehicle engineered to deliver distributed
+          undersea effects at a fraction of the ordnance and cost of legacy
+          heavyweight torpedoes.
+        </p>
+        <div class="hero-credits">
+          Engineered by Seth Rhodes &amp; Breno Casciello
+          &nbsp;&middot;&nbsp; Funded by the Defense Innovation Unit (DIU)
+        </div>
+      </div>
+    </section>
 
-    <p>
-      Within 40 days, the team completed a full design–build–test cycle, producing a 1:3-scale working prototype that demonstrated autonomous navigation, top-speed runs, and range testing. Test data indicates approximately 3.1× the operational range of the U.S. Navy's heavyweight torpedo of choice, the Mk 48. The overall design follows a platform-agnostic, open-architecture philosophy, optimized for mass production using COTS components.
-    </p>
+    <!-- ── 3-D Viewer ── -->
+    <div class="viewer-wrap">
+      <canvas id="three-canvas"></canvas>
+      <svg id="callout-svg"></svg>
+    </div>
 
-    <p>
-      Mechanically, the vehicle integrates dual-actuated bomb-bay deployment, pressure-rated rotary shaft seals with dual-channel military-standard grooves, electric propulsion, and modular bays enabling maintenance turnaround in under 15 minutes. All sensors and controls—including sonar, IMU, ESC, BMS, and drivetrain—operate through ROS 2 to support both autonomous and semi-autonomous mission modes.
-    </p>
+    <div class="scroll-driver"></div>
 
-    <p>
-      A key innovation lies in the energetic coupling concept, where multiple Spiders (lightweight kinetic effectors launched from inside the SpiderEgg) coordinate their terminal detonations in time and space so that hydrodynamic interactions amplify the combined effect. Simulations by Stanford's Flow Physics & Computational Lab showed that this method can achieve lethality comparable to a Mk 48 while using roughly half the total explosive mass.
-    </p>
+    <!-- ── Main Content ── -->
+    <main>
+      <h2 class="section-label">Overview</h2>
+      <h3 class="section-title">SpiderEgg</h3>
 
-    <p>
-      Operationally, the system can execute distributed mission kills—targeting specific subsystems—or synchronize swarm attacks for a decisive hard kill. The Spiders employ onboard mesh networking and cueing to dynamically adjust targets during missions, while the parent capsule can provide re-tasking via masted thermal/EO sensors and redundant SATCOM, Iridium, HF, and VHF links.
-    </p>
+      <p>
+        SpiderEgg is a modular UUV that carries three small kinetic effectors
+        ("Spiders") in a lower payload bay and an upper deck for FPV drones, EW
+        modules, or sensor pods. Built around COTS components for mass
+        production, it launches from submarine torpedo tubes, surface vessels,
+        or shore platforms.
+      </p>
 
-    <p>
-      HydraStrike's work gained strong validation: over 180 stakeholder interviews—including 20 admirals and 30 acquisition officers—secured $100K in equity-free funding and a Cooperative Research and Development Agreement (CRADA) with the U.S. Navy to pursue full-scale development.
-    </p>
+      <p>
+        The core innovation is energetic coupling: the three Spiders coordinate
+        their terminal detonations in time and space so that hydrodynamic
+        interactions amplify the combined blast, achieving lethality equivalent
+        to the Mk&nbsp;48 (the Navy's only heavyweight torpedo option) using
+        just 52% of the ordnance, as validated by Stanford's Flow Physics &amp;
+        Computational Lab.
+      </p>
 
-    <p class="status">HydraStrike has paused operations.</p>
-  </main>
+      <p>
+        Over 180 stakeholder interviews, including 20 admirals and 30
+        acquisition officers, secured $100K in equity-free funding, a
+        CRADA with the U.S. Navy, and a teaming agreement with a Big-5
+        defense prime.
+      </p>
+
+      <!-- ── Specs Table ── -->
+      <div class="specs-block">
+        <div class="specs-label">Key Specifications</div>
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <td class="spec-key">Lethality vs. Mk&nbsp;48</td>
+              <td class="spec-val">Same lethality using 48% less ordnance</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Operational Range</td>
+              <td class="spec-val">86 NM (3× the Mk&nbsp;48)</td>
+            </tr>
+            <tr>
+              <td class="spec-key">TRL Achieved</td>
+              <td class="spec-val">TRL&nbsp;6 (1:3 scale prototype tested in relevant environment)</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Payload</td>
+              <td class="spec-val"></td>
+            </tr>
+            <tr>
+              <td class="spec-key spec-key-sub">&#8627; Upper deck</td>
+              <td class="spec-val">FPV drones, EW, ISR modules</td>
+            </tr>
+            <tr>
+              <td class="spec-key spec-key-sub">&#8627; Lower bay</td>
+              <td class="spec-val">3 kinetic Spiders or 2 lightweight torpedoes</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Launch Platforms</td>
+              <td class="spec-val">Submarine torpedo tubes, large UUVs, surface vessels, shore</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Propulsion</td>
+              <td class="spec-val">Electric, open-architecture drivetrain</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Autonomy</td>
+              <td class="spec-val">ROS&nbsp;2, autonomous &amp; semi-autonomous mission modes</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Funding</td>
+              <td class="spec-val">$100K equity-free (DIU) + Navy CRADA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="status">Hydra Strike has been archived.</p>
+    </main>
+  </div>
 </Layout>
 
 <style>
-  main {
+  * { box-sizing: border-box; }
+
+  .page {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 660px;
-    margin: 0;
-    padding: 4.5rem 2.5rem 5rem;
     -webkit-font-smoothing: antialiased;
   }
 
   .back-link {
-    display: inline-block;
-    font-size: 0.8rem;
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    font-size: 0.78rem;
     color: #aaa;
     text-decoration: none;
-    letter-spacing: 0.02em;
-    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
     transition: color 0.15s ease;
   }
+  .back-link:hover { color: #333; }
 
-  .back-link:hover {
-    color: #555;
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 2.5rem 5rem;
+    background: #fff;
   }
 
-  h1 {
+  .hero-inner {
+    max-width: 660px;
+  }
+
+  .hero-meta {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 3.8rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: #0a0a0a;
+    margin: 0 0 1.4rem;
+    line-height: 1.05;
+  }
+
+  .hero-by {
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 1.8rem;
+    max-width: 540px;
+  }
+
+  .hero-credits {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── 3-D Viewer ── */
+  .viewer-wrap {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #f7f7f5;
+    overflow: hidden;
+  }
+
+  #three-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #callout-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .scroll-driver {
+    height: 450vh;
+    background: #f7f7f5;
+  }
+
+  /* ── Main Content ── */
+  main {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 6rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 0.6rem;
+  }
+
+  .section-title {
     font-size: 2.2rem;
     font-weight: 300;
     letter-spacing: -0.03em;
     color: #0a0a0a;
-    margin: 0 0 1.5rem;
-  }
-
-  img {
-    width: 100%;
-    border-radius: 6px;
-    margin-bottom: 2rem;
-    display: block;
+    margin: 0 0 2rem;
   }
 
   p {
@@ -82,11 +250,342 @@ import hydraImage from '../../assets/spideregghorizontal.jpg';
     margin: 0 0 1.4rem;
   }
 
+  /* ── Specs Table ── */
+  .specs-block {
+    margin: 3rem 0 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #ebebeb;
+  }
+
+  .specs-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.2rem;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .specs-table tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .specs-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .spec-key-sub {
+    padding-top: 0.1rem;
+    padding-bottom: 0.75rem;
+    color: #bbb !important;
+    font-weight: 400 !important;
+  }
+
+  .spec-key {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    color: #999;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 38%;
+  }
+
+  .spec-val {
+    padding: 0.75rem 0;
+    color: #333;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  .specs-highlight .spec-key {
+    color: #555;
+    font-weight: 600;
+  }
+
+  .specs-highlight .spec-val {
+    color: #0a0a0a;
+    font-weight: 500;
+  }
+
   .status {
     color: #aaa;
     font-style: italic;
+    font-size: 0.875rem;
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #ebebeb;
   }
 </style>
+
+<script>
+  import * as THREE from 'three';
+  import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+
+  const canvas = document.getElementById('three-canvas') as HTMLCanvasElement;
+  const svgEl2 = document.getElementById('callout-svg') as unknown as SVGSVGElement;
+
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(W, H);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xf5f5f3);
+
+  const camera = new THREE.PerspectiveCamera(38, W / H, 0.01, 1000);
+  const camTarget = new THREE.Vector3(0, 0, 0);
+
+  // Lighting
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const key = new THREE.DirectionalLight(0xffffff, 3.0);
+  key.position.set(5, 8, 4);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.5);
+  fill.position.set(-4, -2, -3);
+  scene.add(fill);
+
+  let model: THREE.Mesh | null = null;
+
+  // Camera keyframes — 10 steps
+  // overview → upper deck → hold → out → sensor mast → hold → out → spider bay → hold → out
+  type CamStep = { cx: number; cy: number; cz: number; tx: number; ty: number };
+  const camSteps: CamStep[] = [
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 0: overview
+    { cx:  0.3, cy:  0.4, cz: 1.1, tx:  0.3, ty:  0.05 }, // 1: zoom upper deck
+    { cx:  0.3, cy:  0.4, cz: 1.1, tx:  0.3, ty:  0.05 }, // 2: hold upper deck (callout)
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 3: zoom out
+    { cx: -0.45, cy:  0.45, cz: 1.1,  tx: -0.45, ty: 0.15 }, // 4: zoom to nose/sensor mast
+    { cx: -0.45, cy:  0.45, cz: 1.1,  tx: -0.45, ty: 0.15 }, // 5: hold sensor (callout)
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 6: zoom out
+    { cx:  0.1, cy: -0.4, cz: 1.1, tx:  0.1, ty: -0.05 }, // 7: zoom spider bay
+    { cx:  0.1, cy: -0.4, cz: 1.1, tx:  0.1, ty: -0.05 }, // 8: hold spider bay (callout)
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 9: zoom out
+  ];
+
+  type CalloutDef = {
+    label: string;
+    lines: string[];
+    anchor: THREE.Vector3;
+    offsetX: number;
+    offsetY: number;
+    side: 'left' | 'right';
+    visibleAt: number;
+  };
+
+  // Anchors are in WORLD space — model is static so world coords are stable.
+  // After rotation.x=-PI/2, local Z → world Y (up/down), so world-space anchors
+  // are simpler and avoid axis-confusion with localToWorld.
+  const calloutDefs: CalloutDef[] = [
+    {
+      label: 'VERSATILE UPPER PAYLOAD DECK',
+      lines: ['Houses FPV drones, EW modules,', 'and buoyant relay sensors.'],
+      anchor: new THREE.Vector3(0.15, 0.11, 0),   // world: center of upper bay, on hull surface
+      offsetX: 240, offsetY: -200,
+      side: 'right',
+      visibleAt: 2,
+    },
+    {
+      label: 'ADAPTIVE SENSOR & COMMS MAST',
+      lines: ['Thermal/EO optics keep eyes on target', 'after Spider deployment, enabling', 'dynamic re-tasking mid-engagement.'],
+      anchor: new THREE.Vector3(-0.63, 0.38, 0),  // world: top of mast antenna
+      offsetX: 330, offsetY: -110,
+      side: 'right',
+      visibleAt: 5,
+    },
+    {
+      label: 'MISSION-FLEXIBLE LOWER BAY',
+      lines: ['3 kinetic Spiders or 2 lightweight torpedoes,', 'deployable mid-mission.'],
+      anchor: new THREE.Vector3(0.2, -0.13, 0),   // world: center of lower bay, on hull bottom
+      offsetX: -240, offsetY: 200,
+      side: 'left',
+      visibleAt: 8,
+    },
+  ];
+
+  const loader = new STLLoader();
+  loader.load('/test.stl', (geometry: THREE.BufferGeometry) => {
+    geometry.computeVertexNormals();
+
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x555555,
+      roughness: 0.45,
+      metalness: 0.4,
+    });
+    model = new THREE.Mesh(geometry, material);
+
+    geometry.computeBoundingBox();
+    const box = geometry.boundingBox!;
+    const center = new THREE.Vector3();
+    box.getCenter(center);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = 1.6 / maxDim;
+    model.scale.setScalar(scale);
+    model.position.sub(center.multiplyScalar(scale));
+
+    model.rotation.x = -Math.PI / 2;
+    model.rotation.y = 0;
+
+    scene.add(model);
+    setCameraFromStep(0);
+  });
+
+  function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
+  function easeInOut(t: number) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+  function setCameraFromStep(rawStep: number) {
+    const totalSteps = camSteps.length - 1;
+    const stepIndex = Math.min(Math.floor(rawStep), totalSteps - 1);
+    const t = easeInOut(rawStep - stepIndex);
+    const from = camSteps[stepIndex];
+    const to = camSteps[Math.min(stepIndex + 1, totalSteps)];
+    camera.position.set(
+      lerp(from.cx, to.cx, t),
+      lerp(from.cy, to.cy, t),
+      lerp(from.cz, to.cz, t),
+    );
+    camTarget.set(
+      lerp(from.tx, to.tx, t),
+      lerp(from.ty, to.ty, t),
+      0,
+    );
+    camera.lookAt(camTarget);
+  }
+
+  const scrollDriver = document.querySelector('.scroll-driver') as HTMLElement | null;
+  let currentRawStep = 0;
+
+  // Custom step timing: 6 transitions (0.1235 each), 3 holds (0.0864 each) ≈ 30% shorter
+  const stepTimes = [0, 0.1235, 0.2099, 0.3333, 0.4568, 0.5432, 0.6667, 0.7901, 0.8765, 1.0];
+  function scrollToRawStep(scrolled: number): number {
+    for (let i = 0; i < stepTimes.length - 1; i++) {
+      if (scrolled <= stepTimes[i + 1]) {
+        const t = (scrolled - stepTimes[i]) / (stepTimes[i + 1] - stepTimes[i]);
+        return i + Math.min(t, 1);
+      }
+    }
+    return stepTimes.length - 1;
+  }
+
+  function onScroll() {
+    if (!scrollDriver) return;
+    const driverTop = scrollDriver.getBoundingClientRect().top + window.scrollY - window.innerHeight;
+    const driverHeight = scrollDriver.offsetHeight;
+    const scrolled = Math.max(0, Math.min(1, (window.scrollY - driverTop) / driverHeight));
+    currentRawStep = scrollToRawStep(scrolled);
+    setCameraFromStep(currentRawStep);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── SVG callouts ──
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function toScreen(worldPos: THREE.Vector3) {
+    const ndc = worldPos.clone().project(camera);
+    return { x: (ndc.x + 1) / 2 * W, y: (-ndc.y + 1) / 2 * H };
+  }
+
+  function mkEl(tag: string, attrs: Record<string, string>) {
+    const el = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+    return el;
+  }
+
+  function updateCallouts() {
+    while (svgEl2.firstChild) svgEl2.removeChild(svgEl2.firstChild);
+    if (!model) return;
+
+    calloutDefs.forEach(def => {
+      const dist = Math.abs(currentRawStep - def.visibleAt);
+      const opacity = Math.max(0, 1 - dist / 0.8);
+      if (opacity < 0.01) return;
+
+      const worldAnchor = def.anchor.clone();  // already in world space
+      const s = toScreen(worldAnchor);
+
+      const lx = s.x + def.offsetX;
+      const ly = s.y + def.offsetY;
+      // L: go vertical from anchor to label height, then horizontal to label
+      const midX = s.x;
+      const midY = ly;
+      const op = opacity.toFixed(3);
+      const ta = def.side === 'right' ? 'start' : 'end';
+
+      // Anchor dot
+      svgEl2.appendChild(mkEl('circle', {
+        cx: s.x.toFixed(1), cy: s.y.toFixed(1), r: '4',
+        fill: `rgba(15,15,15,${op})`,
+      }));
+
+      // L-shaped line: vertical from anchor → then horizontal to label
+      svgEl2.appendChild(mkEl('path', {
+        d: `M ${s.x.toFixed(1)} ${s.y.toFixed(1)} L ${midX.toFixed(1)} ${midY.toFixed(1)} L ${lx.toFixed(1)} ${ly.toFixed(1)}`,
+        stroke: `rgba(15,15,15,${(opacity * 0.7).toFixed(3)})`,
+        'stroke-width': '2',
+        fill: 'none',
+        'stroke-linecap': 'round',
+      }));
+
+      // Horizontal baseline under text
+      const textW = def.side === 'right' ? 220 : -220;
+      svgEl2.appendChild(mkEl('line', {
+        x1: lx.toFixed(1), y1: (ly + 4).toFixed(1),
+        x2: (lx + textW).toFixed(1), y2: (ly + 4).toFixed(1),
+        stroke: `rgba(15,15,15,${(opacity * 0.15).toFixed(3)})`,
+        'stroke-width': '1',
+      }));
+
+      // Label
+      svgEl2.appendChild(Object.assign(mkEl('text', {
+        x: lx.toFixed(1), y: ly.toFixed(1),
+        fill: `rgba(15,15,15,${op})`,
+        'font-size': '16',
+        'font-weight': '800',
+        'letter-spacing': '1.8',
+        'font-family': 'Inter, sans-serif',
+        'text-anchor': ta,
+      }), { textContent: def.label }));
+
+      // Description lines
+      def.lines.forEach((line, i) => {
+        svgEl2.appendChild(Object.assign(mkEl('text', {
+          x: lx.toFixed(1),
+          y: (ly + 24 + i * 23).toFixed(1),
+          fill: `rgba(15,15,15,${(opacity * 0.7).toFixed(3)})`,
+          'font-size': '18',
+          'font-family': 'Inter, sans-serif',
+          'text-anchor': ta,
+        }), { textContent: line }));
+      });
+    });
+  }
+
+  window.addEventListener('resize', () => {
+    W = window.innerWidth; H = window.innerHeight;
+    renderer.setSize(W, H);
+    camera.aspect = W / H;
+    camera.updateProjectionMatrix();
+    svgEl2.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  });
+  svgEl2.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+    updateCallouts();
+  }
+  animate();
+</script>
