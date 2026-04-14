@@ -1,0 +1,352 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="page">
+    <a href="/" class="back-link">← Back</a>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>AutoCurtain</h1>
+        <p class="hero-sub">
+          A machined aluminum curtain motor that raises the blinds at 6 AM and
+          lowers them at 11 PM. Built cheap and universal: full BOM under $50,
+          fits any standard curtain system out of the box.
+        </p>
+        <div class="hero-credits">
+          Designed &amp; machined by Breno Casciello
+          &nbsp;&middot;&nbsp; Machined on a Haas CNC VF2
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Feature Photo ── -->
+    <div class="feature-image">
+      <img src="/autocurtain-product.jpeg" alt="AutoCurtain mounted on curtain rod" />
+    </div>
+
+    <!-- ── Main Content ── -->
+    <main>
+      <h2 class="section-label">Overview</h2>
+      <h3 class="section-title">AutoCurtain</h3>
+
+      <p>
+        Natural light is the strongest signal the body uses to set its circadian
+        clock. Getting sunlight immediately after waking is one of the
+        highest-leverage habits for locking in a consistent wake time.
+        AutoCurtain automates it: an Arduino fires at 6:00&nbsp;AM, the curtains
+        rise, and at 11:00&nbsp;PM they close.
+      </p>
+
+      <p>
+        Commercial motorized curtain systems start north of $200. The full BOM
+        here is under $50: a $1 aluminum pipe, $5 lids, and a cheap 12V DC
+        gearmotor. Universality comes from the set screw shaft coupler, which
+        clamps onto the curtain rod axle by tightening a set screw from the
+        outside. It accepts any rod shaft under half an inch in diameter, which
+        covers nearly every curtain system on the market.
+      </p>
+
+      <!-- ── CAD image pair ── -->
+      <div class="image-pair">
+        <figure>
+          <img src="/autocurtain-gearbox.png" alt="Gearbox and motor assembly" />
+          <figcaption>5:1 planetary gearbox &amp; 12V DC motor assembly</figcaption>
+        </figure>
+        <figure>
+          <img src="/autocurtain-body.png" alt="Main body cylinder" />
+          <figcaption>Main body, Ø3.00″ × 4.93″ aluminum cylinder</figcaption>
+        </figure>
+      </div>
+
+      <h2 class="section-label" style="margin-top: 2.8rem;">Design</h2>
+
+      <p>
+        The main body is standard 3-inch aluminum tube stock, lightly sanded
+        to a brushed finish. Using off-the-shelf pipe eliminated a turning
+        operation and kept the cost down without sacrificing the look.
+      </p>
+
+      <p>
+        Fitting a gearmotor coaxially inside a 3-inch bore rules out spur-gear
+        sidepacks. A planetary stage solves this: the ring, planet, and sun
+        gears all share the motor axis, so the entire drivetrain fits within
+        the tube diameter. The 5:1 reduction multiplies torque enough to drive
+        a loaded curtain from a standstill without stalling the motor.
+      </p>
+
+      <p>
+        All structural parts were machined from aluminum on a Haas CNC VF2.
+        Tight bore fits on the gearbox housing and the 8mm shaft coupler keep
+        runout negligible over a long run life.
+      </p>
+
+      <!-- ── Cross-section ── -->
+      <figure class="full-figure">
+        <img src="/autocurtain-section.png" alt="Internal cross-section showing motor, gearbox, shaft coupler, and end plates" />
+        <figcaption>Cross-section: 12V DC motor, 5:1 planetary gearbox, 8mm shaft coupler, aluminum end plates</figcaption>
+      </figure>
+
+      <!-- ── Specs Table ── -->
+      <div class="specs-block">
+        <div class="specs-label">Key Specifications</div>
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <td class="spec-key">Motor</td>
+              <td class="spec-val">12V DC brushed</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Gearbox</td>
+              <td class="spec-val">5:1 planetary, coaxial, fits within Ø3.00″ bore</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Main Body</td>
+              <td class="spec-val">Ø3.00″ OD × 4.93″ aluminum tube, brushed finish</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Material</td>
+              <td class="spec-val">Aluminium, as machined</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Shaft Coupler</td>
+              <td class="spec-val">Set screw type, accepts any rod up to ½″ diameter</td>
+            </tr>
+            <tr>
+              <td class="spec-key">BOM Cost</td>
+              <td class="spec-val">Under $50 (vs. $200+ commercial)</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Controller</td>
+              <td class="spec-val">Arduino (timed relay)</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Schedule</td>
+              <td class="spec-val">Raise at 6:00 AM &nbsp;&middot;&nbsp; Lower at 11:00 PM</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Machined on</td>
+              <td class="spec-val">Haas CNC VF2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="status">Running daily since March 2026.</p>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  * { box-sizing: border-box; }
+
+  .page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    font-size: 0.78rem;
+    color: #aaa;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.15s ease;
+  }
+  .back-link:hover { color: #333; }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 2.5rem 5rem;
+    background: #fff;
+  }
+
+  .hero-inner {
+    max-width: 660px;
+  }
+
+  .hero h1 {
+    font-size: 3.8rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: #0a0a0a;
+    margin: 0 0 1.4rem;
+    line-height: 1.05;
+  }
+
+  .hero-by {
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 1.8rem;
+    max-width: 540px;
+  }
+
+  .hero-credits {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Feature Image ── */
+  .feature-image {
+    width: 100%;
+    max-height: 75vh;
+    overflow: hidden;
+    background: #f0ede8;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  /* ── Main Content ── */
+  main {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 6rem;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 0.6rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: #0a0a0a;
+    margin: 0 0 2rem;
+  }
+
+  p {
+    font-size: 0.925rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0 0 1.4rem;
+  }
+
+  /* ── Image Pair ── */
+  .image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+
+  .image-pair figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  .image-pair img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    background: #f7f7f5;
+  }
+
+  /* ── Full-width Figure ── */
+  .full-figure {
+    margin: 2.5rem 0;
+    padding: 0;
+  }
+
+  .full-figure img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    background: #f7f7f5;
+  }
+
+  figcaption {
+    font-size: 0.75rem;
+    color: #bbb;
+    letter-spacing: 0.03em;
+    margin-top: 0.6rem;
+    line-height: 1.5;
+  }
+
+  /* ── Specs Table ── */
+  .specs-block {
+    margin: 3rem 0 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #ebebeb;
+  }
+
+  .specs-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.2rem;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .specs-table tr {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .specs-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .spec-key {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    color: #999;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 38%;
+  }
+
+  .spec-val {
+    padding: 0.75rem 0;
+    color: #333;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  .status {
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ebebeb;
+  }
+</style>

@@ -109,6 +109,10 @@ import Layout from '../../layouts/Layout.astro';
       </div>
 
       <p class="status">Hydra Strike has been archived.</p>
+
+      <p class="further">
+        Featured in Hacking for Defense. <a href="https://www.h4d.us/success-stories/team-skyshield-crgwl-hgymy" target="_blank" rel="noopener">Read the write-up →</a>
+      </p>
     </main>
   </div>
 </Layout>
@@ -322,6 +326,26 @@ import Layout from '../../layouts/Layout.astro';
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #ebebeb;
+  }
+
+  .further {
+    font-size: 0.875rem;
+    color: #888;
+    line-height: 1.7;
+    margin-top: 1.2rem;
+  }
+
+  .further a {
+    color: #555;
+    text-decoration: underline;
+    text-decoration-color: #ddd;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .further a:hover {
+    color: #111;
+    text-decoration-color: #aaa;
   }
 </style>
 
