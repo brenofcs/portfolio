@@ -1,0 +1,501 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="page">
+    <a href="/" class="back-link">← Back</a>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Automatic Coal Feeder</h1>
+        <p class="hero-sub">
+          Stanford ME&nbsp;170B capstone. Redesign the Automatic Coal Feeder for 100-unit
+          deployment in Bangladesh brick kilns: cut BOM cost 35%, reduce assembly time to
+          under 16&nbsp;man-hours, and source every part locally.
+        </p>
+        <div class="hero-credits">
+          Breno Casciello, William Sayler, Kilas Gallimore, Wooseok Kim
+          &nbsp;&middot;&nbsp; Stanford ME&nbsp;170B Capstone, Winter 2026
+          &nbsp;&middot;&nbsp; In collaboration with BUET &amp; the Stanford Woods Institute
+          &nbsp;&middot;&nbsp; <a href="https://doi.org/10.25740/rg783dp0539" target="_blank" rel="noopener" class="doi-link">Stanford Digital Repository</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Feature Photo ── -->
+    <div class="feature-image">
+      <img src="/acf-kilns.png" alt="Coal-fired brick kilns in Dhaka, Bangladesh ejecting particulate matter" />
+    </div>
+
+    <!-- ── Main Content ── -->
+    <main>
+
+      <!-- Overview -->
+      <h2 class="section-label">Overview</h2>
+      <h3 class="section-title">Automatic Coal Feeder</h3>
+
+      <p>
+        The ACF is a motor-driven coal feeder that dispenses fuel at a controlled, continuous
+        rate into brick kiln portholes — replacing the irregular, hand-shoveled batches that cause
+        incomplete combustion and particulate spikes. The Stanford–BUET collaboration has developed
+        the concept over six years. Our AY26 charge was not to invent the machine but to make 100
+        of them possible: redesign for manufacturability, cut cost by 35%, and reduce assembly time
+        enough to build 10 units per week in Bangladesh.
+      </p>
+
+      <!-- The Problem -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">The Problem</h2>
+
+      <p>
+        Bangladesh recorded the highest average particulate pollution in the world in 2023 —
+        roughly 16× the WHO guideline. The brick sector is the dominant source: ~23 billion bricks
+        per year, thousands of fixed-chimney kilns, all fed by hand.
+      </p>
+
+      <p>
+        The root mechanism is operator practice. Firemen shovel coal in batches every 15–20 minutes.
+        Each large, irregular charge momentarily smothers the flame, drives combustion into
+        oxygen-poor conditions, then cycles back to reignition — generating black carbon and CO with
+        every feeding. A randomized controlled trial (Brooks et al., <em>Science</em> 2025) confirmed
+        that more uniform fuel delivery reduces emissions by at least 43% without changing the kiln.
+        The ACF operationalizes that finding.
+      </p>
+
+      <!-- How It Works -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">How It Works</h2>
+
+      <p>
+        A 55-gallon steel drum acts as the hopper. A motor drives a vertical shaft, rotating a
+        central turntable sandwiched between two fixed plates. The turntable's eight pockets capture
+        coal from the top plate's four inlet holes, carry it 45° around, then drop it through the
+        bottom plate's four outlet holes — delivering eight discrete, metered charges per revolution
+        across four kiln portholes. Plate speed sets feed rate; at 2&nbsp;RPM the mechanism delivers
+        ~5&nbsp;g/s per outlet.
+      </p>
+
+      <figure class="full-figure">
+        <img src="/acf-sandwich-diagram.png" alt="Exploded view of the sandwich mechanism" />
+        <figcaption>
+          Sandwich mechanism: top plate (1), turntable with eight pockets (2), bottom plate (3),
+          aluminum+bronze inserts (4, 5) that define pocket volume and seal against coal dust,
+          compression springs (6), and coal extractors (7).
+        </figcaption>
+      </figure>
+
+      <!-- Design Challenge -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">Design Challenge</h2>
+
+      <p>
+        The previous prototype worked. It just couldn't be built 100 times. Four subsystems drove
+        the cost and manufacturability problems: an oversized motor consuming more than 50% of total
+        BOM, a motor mount requiring precise weld geometry on an inherently imprecise drum surface,
+        a specialty sprocket that was expensive and over-specified, and all-brass inserts that used
+        costly material throughout a part that only needed it at the sliding contact surface.
+      </p>
+
+      <figure class="full-figure">
+        <img src="/acf-dfm-callout.png" alt="Exploded ACF diagram with callouts identifying the four DFM problem areas" />
+        <figcaption>Four manufacturability bottlenecks targeted in AY26: motor, motor mount, sprocket, and inserts.</figcaption>
+      </figure>
+
+      <!-- The Redesign — four changes -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">The Redesign</h2>
+
+      <!-- 01 Inserts -->
+      <div class="change-item">
+        <div class="change-label">01 — Sandwich Mechanism Inserts</div>
+        <p>
+          All-brass inserts replaced with a hybrid aluminum + bronze system. The aluminum body
+          defines the pocket geometry and drafted 55° sidewalls that let coal fall free; a thin
+          bronze ring sits only at the sliding contact surface where wear accumulates. This
+          concentrates expensive material where it matters and makes the wear surface a planned
+          replacement item rather than an uncontrolled failure mode. Archard's wear analysis
+          projected 0.011″ of bronze loss over a full two-month season — well within the 0.15″
+          available. Insert cost down 37%.
+        </p>
+        <div class="image-pair">
+          <figure>
+            <img src="/acf-turntable.jpeg" alt="Turntable plate with eight aluminum+bronze inserts and square drive at center" />
+            <figcaption>Turntable: 8 aluminum+bronze inserts, square drive at center</figcaption>
+          </figure>
+          <figure>
+            <img src="/acf-bottom-plate.jpeg" alt="Bottom plate with four outlet inserts, bronze wear rings visible" />
+            <figcaption>Bottom plate: 4 outlet inserts, bronze wear rings visible</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 02 Drive Unit -->
+      <div class="change-item">
+        <div class="change-label">02 — Motor &amp; Gearbox</div>
+        <p>
+          The previous motor consumed more than half the total BOM. The AY26 drive unit pairs a
+          24&nbsp;V, 200&nbsp;W BLDC motor with an integrated 180:1 right-angle gearbox plus an
+          additional 7:1 planetary reducer. Starting from 16.7&nbsp;rpm and 60&nbsp;N·m at the
+          first stage, the combined unit delivers ~2.4&nbsp;rpm and ~407&nbsp;N·m at the
+          shaft — a 180% margin above the 145&nbsp;N·m worst-case requirement measured in summer
+          2025 testing. Drive unit cost down 52%.
+        </p>
+        <figure class="full-figure">
+          <img src="/acf-motor-mounted.png" alt="24V BLDC motor with planetary gearbox mounted on the redesigned motor mount inside the drum" />
+          <figcaption>StepperOnline 200&nbsp;W BLDC + Anaheim Automation 7:1 planetary, mounted on the adjustable threaded-rod mount.</figcaption>
+        </figure>
+      </div>
+
+      <!-- 03 Motor Mount -->
+      <div class="change-item">
+        <div class="change-label">03 — Motor Mount</div>
+        <p>
+          The previous mount bolted to welded flanges on the drum exterior, requiring precise
+          weld geometry and shimming to compensate for the drum's imprecise surface. The new
+          mount uses threaded rods through oversize holes in the drum wall, clamped with oversize
+          washers and nuts — holes drilllable in minutes with a hand tool, no welding required.
+          A slotted universal joint between the motor output shaft and the vertical drive shaft
+          absorbs residual angular and z-axis misalignment. Precise alignment is no longer
+          necessary; alignment by eye with a hand level is sufficient.
+        </p>
+        <figure class="full-figure">
+          <img src="/acf-motor-mount-cad.png" alt="Redesigned motor mount CAD: oversize washers on threaded rods, clevis-pin universal joint" />
+          <figcaption>Oversize washers clamp through holes in the drum wall. The clevis pin in an oversized shaft slot acts as a crude universal joint, absorbing misalignment without bearings.</figcaption>
+        </figure>
+      </div>
+
+      <!-- 04 Square Drive -->
+      <div class="change-item">
+        <div class="change-label">04 — Square Drive</div>
+        <p>
+          The original sprocket was a precision purchased component with complex 3D geometry. Its
+          replacement is a 7″ × 7″ square of ⅜″ mild steel plate, waterjet-cut from flat stock,
+          press-fit and welded to the shaft. Stress analysis (FoS 4.72 analytical; 3.57 FEA) and
+          Archard's wear analysis (3.63% volume loss per season) both confirm adequate margin. The
+          part can be laser-cut locally in Bangladesh. Cost reduction: $85 per unit, 78% down.
+          Corners trimmed to 45° to clear the aluminum inserts — a field fix discovered during
+          assembly.
+        </p>
+        <figure class="full-figure">
+          <img src="/acf-square-drive.png" alt="Square drive: CAD model and fabricated part assembled to turntable shaft" />
+          <figcaption>CAD and fabricated part: 7″ × 7″ × ⅜″ steel plate. Waterjet-cut to match Bangladeshi laser-cutting shops.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Testing -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">Testing</h2>
+
+      <p>
+        18&nbsp;kg of 15%-moisture coal was loaded and the motor commanded to 2&nbsp;RPM. Four
+        weighed collection buckets were placed under the outlets; the run completed without
+        stalling or clogging. The mechanism was disassembled immediately after for wear and
+        dust-intrusion inspection.
+      </p>
+
+      <div class="image-pair">
+        <figure>
+          <img src="/acf-assembled.jpeg" alt="Fully assembled ACF prototype" />
+          <figcaption>Final assembled prototype ready for test</figcaption>
+        </figure>
+        <figure>
+          <img src="/acf-teardown.jpeg" alt="Team tearing down the ACF after testing, coal-covered plates and buckets visible" />
+          <figcaption>Post-test teardown — plates and inserts inspected for wear</figcaption>
+        </figure>
+      </div>
+
+      <!-- Results -->
+      <div class="specs-block">
+        <div class="specs-label">Results</div>
+        <table class="specs-table">
+          <tbody>
+            <tr>
+              <td class="spec-key">Feed Rate</td>
+              <td class="spec-val">5.55&nbsp;g/s mean across 4 outlets (5.03–5.86&nbsp;g/s range) · Requirement: 2–10&nbsp;g/s ✓</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Cost</td>
+              <td class="spec-val">$1,646 BOM · 33% below previous prototype · Target was 35%</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Assembly Time</td>
+              <td class="spec-val">12 man-hours · Requirement: ≤16 man-hours ✓</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Drive Unit</td>
+              <td class="spec-val">24&nbsp;V 200&nbsp;W BLDC · 180:1 + 7:1 planetary · ~407&nbsp;N·m output · 180% torque margin</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Operating Speed</td>
+              <td class="spec-val">2.0–2.4&nbsp;RPM at shaft</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Coal Condition</td>
+              <td class="spec-val">15% moisture (field condition)</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Bronze Wear (calc.)</td>
+              <td class="spec-val">0.011″ over 2-month season · Limit: 0.15″</td>
+            </tr>
+            <tr>
+              <td class="spec-key">Deployment Target</td>
+              <td class="spec-val">100 units · October 2026 kiln season · Bangladesh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Team Photo -->
+      <figure class="full-figure" style="margin-top: 3rem;">
+        <img src="/acf-team.png" alt="Team with assembled ACF: coach Steve Horne, Breno Casciello, William Sayler, Kilas Gallimore, Wooseok Kim, and CA Catalina Melentyev" />
+        <figcaption>With coach Steve Horne (far left) after bench testing. Team (L–R): Horne, Casciello, Sayler, Gallimore, Kim, Melentyev.</figcaption>
+      </figure>
+
+    </main>
+  </div>
+</Layout>
+
+<style>
+  * { box-sizing: border-box; }
+
+  .page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .back-link {
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    z-index: 100;
+    font-size: 0.78rem;
+    color: #aaa;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.15s ease;
+  }
+  .back-link:hover { color: #333; }
+
+  /* ── Hero ── */
+  .hero {
+    display: flex;
+    align-items: flex-start;
+    padding: 7rem 2.5rem 5rem;
+    background: #fff;
+  }
+
+  .hero-inner { max-width: 660px; }
+
+  .hero h1 {
+    font-size: 3.8rem;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    color: #0a0a0a;
+    margin: 0 0 1.4rem;
+    line-height: 1.05;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0 0 1.8rem;
+    max-width: 540px;
+  }
+
+  .hero-credits {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Feature Image ── */
+  .feature-image {
+    width: 100%;
+    height: 55vh;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .doi-link {
+    color: #aaa;
+    text-decoration: underline;
+    text-decoration-color: #ddd;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+  .doi-link:hover { color: #555; }
+
+  /* ── Main Content ── */
+  main {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 6rem;
+    overflow: visible;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 0.6rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    color: #0a0a0a;
+    margin: 0 0 2rem;
+  }
+
+  p {
+    font-size: 0.925rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0 0 1.4rem;
+  }
+
+  /* ── Full-bleed breakout ── */
+  .bleed-figure {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2.8rem 0;
+    padding: 0;
+  }
+
+  .bleed-figure img {
+    width: 100%;
+    max-height: 55vh;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+
+  .bleed-figure figcaption {
+    max-width: 660px;
+    margin: 0.6rem auto 0;
+    padding: 0 2.5rem;
+  }
+
+  /* ── Full-width Figure ── */
+  .full-figure {
+    margin: 2.5rem 0;
+    padding: 0;
+  }
+
+  .full-figure img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    background: #f7f7f5;
+  }
+
+  figcaption {
+    font-size: 0.75rem;
+    color: #bbb;
+    letter-spacing: 0.03em;
+    margin-top: 0.6rem;
+    line-height: 1.5;
+  }
+
+  /* ── Image Pair ── */
+  .image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .image-pair figure { margin: 0; padding: 0; }
+
+  .image-pair img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    background: #f7f7f5;
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+  }
+
+  /* ── Change Items ── */
+  .change-item {
+    margin-top: 2.8rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .change-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 0.9rem;
+  }
+
+  /* ── Specs Table ── */
+  .specs-block {
+    margin: 3rem 0 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid #ebebeb;
+  }
+
+  .specs-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1.2rem;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .specs-table tr { border-bottom: 1px solid #f0f0f0; }
+  .specs-table tr:last-child { border-bottom: none; }
+
+  .spec-key {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    color: #999;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 38%;
+  }
+
+  .spec-val {
+    padding: 0.75rem 0;
+    color: #333;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  .status {
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ebebeb;
+  }
+</style>
