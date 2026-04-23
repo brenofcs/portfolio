@@ -38,8 +38,8 @@ import Layout from '../../layouts/Layout.astro';
 
       <p>
         The ACF is a motor-driven coal feeder that dispenses fuel at a controlled, continuous
-        rate into brick kiln portholes — replacing the irregular, hand-shoveled batches that cause
-        incomplete combustion and particulate spikes. The Stanford–BUET collaboration has developed
+        rate into brick kiln portholes, replacing the irregular, hand-shoveled batches that cause
+        incomplete combustion and particulate spikes. The Stanford and BUET collaboration has developed
         the concept over six years. Our AY26 charge was not to invent the machine but to make 100
         of them possible: redesign for manufacturability, cut cost by 35%, and reduce assembly time
         enough to build 10 units per week in Bangladesh.
@@ -53,15 +53,15 @@ import Layout from '../../layouts/Layout.astro';
       <h2 class="section-label" style="margin-top: 2.8rem;">The Problem</h2>
 
       <p>
-        Bangladesh recorded the highest average particulate pollution in the world in 2023 —
+        Bangladesh recorded the highest average particulate pollution in the world in 2023,
         roughly 16× the WHO guideline. The brick sector is the dominant source: ~23 billion bricks
         per year, thousands of fixed-chimney kilns, all fed by hand.
       </p>
 
       <p>
-        The root mechanism is operator practice. Firemen shovel coal in batches every 15–20 minutes.
+        The root mechanism is operator practice. Firemen shovel coal in batches every 15 to 20 minutes.
         Each large, irregular charge momentarily smothers the flame, drives combustion into
-        oxygen-poor conditions, then cycles back to reignition — generating black carbon and CO with
+        oxygen-poor conditions, then cycles back to reignition, generating black carbon and CO with
         every feeding. A randomized controlled trial (Brooks et al., <em>Science</em> 2025) confirmed
         that more uniform fuel delivery reduces emissions by at least 43% without changing the kiln.
         The ACF operationalizes that finding.
@@ -74,7 +74,7 @@ import Layout from '../../layouts/Layout.astro';
         A 55-gallon steel drum acts as the hopper. A motor drives a vertical shaft, rotating a
         central turntable sandwiched between two fixed plates. The turntable's eight pockets capture
         coal from the top plate's four inlet holes, carry it 45° around, then drop it through the
-        bottom plate's four outlet holes — delivering eight discrete, metered charges per revolution
+        bottom plate's four outlet holes, delivering eight discrete, metered charges per revolution
         across four kiln portholes. Plate speed sets feed rate; at 2&nbsp;RPM the mechanism delivers
         ~5&nbsp;g/s per outlet.
       </p>
@@ -104,19 +104,19 @@ import Layout from '../../layouts/Layout.astro';
         <figcaption>Four manufacturability bottlenecks targeted in AY26: motor, motor mount, sprocket, and inserts.</figcaption>
       </figure>
 
-      <!-- The Redesign — four changes -->
+      <!-- The Redesign -->
       <h2 class="section-label" style="margin-top: 2.8rem;">The Redesign</h2>
 
       <!-- 01 Inserts -->
       <div class="change-item">
-        <div class="change-label">01 — Sandwich Mechanism Inserts</div>
+        <div class="change-label">01 Sandwich Mechanism Inserts</div>
         <p>
           All-brass inserts replaced with a hybrid aluminum + bronze system. The aluminum body
           defines the pocket geometry and drafted 55° sidewalls that let coal fall free; a thin
           bronze ring sits only at the sliding contact surface where wear accumulates. This
           concentrates expensive material where it matters and makes the wear surface a planned
           replacement item rather than an uncontrolled failure mode. Archard's wear analysis
-          projected 0.011″ of bronze loss over a full two-month season — well within the 0.15″
+          projected 0.011″ of bronze loss over a full two-month season, well within the 0.15″
           available. Insert cost down 37%.
         </p>
         <div class="image-pair">
@@ -133,13 +133,13 @@ import Layout from '../../layouts/Layout.astro';
 
       <!-- 02 Drive Unit -->
       <div class="change-item">
-        <div class="change-label">02 — Motor &amp; Gearbox</div>
+        <div class="change-label">02 Motor &amp; Gearbox</div>
         <p>
           The previous motor consumed more than half the total BOM. The AY26 drive unit pairs a
           24&nbsp;V, 200&nbsp;W BLDC motor with an integrated 180:1 right-angle gearbox plus an
           additional 7:1 planetary reducer. Starting from 16.7&nbsp;rpm and 60&nbsp;N·m at the
           first stage, the combined unit delivers ~2.4&nbsp;rpm and ~407&nbsp;N·m at the
-          shaft — a 180% margin above the 145&nbsp;N·m worst-case requirement measured in summer
+          shaft, a 180% margin above the 145&nbsp;N·m worst-case requirement measured in summer
           2025 testing. Drive unit cost down 52%.
         </p>
         <figure class="full-figure">
@@ -150,12 +150,12 @@ import Layout from '../../layouts/Layout.astro';
 
       <!-- 03 Motor Mount -->
       <div class="change-item">
-        <div class="change-label">03 — Motor Mount</div>
+        <div class="change-label">03 Motor Mount</div>
         <p>
           The previous mount bolted to welded flanges on the drum exterior, requiring precise
           weld geometry and shimming to compensate for the drum's imprecise surface. The new
           mount uses threaded rods through oversize holes in the drum wall, clamped with oversize
-          washers and nuts — holes drilllable in minutes with a hand tool, no welding required.
+          washers and nuts. Holes are drillable in minutes with a hand tool, no welding required.
           A slotted universal joint between the motor output shaft and the vertical drive shaft
           absorbs residual angular and z-axis misalignment. Precise alignment is no longer
           necessary; alignment by eye with a hand level is sufficient.
@@ -168,14 +168,14 @@ import Layout from '../../layouts/Layout.astro';
 
       <!-- 04 Square Drive -->
       <div class="change-item">
-        <div class="change-label">04 — Square Drive</div>
+        <div class="change-label">04 Square Drive</div>
         <p>
           The original sprocket was a precision purchased component with complex 3D geometry. Its
           replacement is a 7″ × 7″ square of ⅜″ mild steel plate, waterjet-cut from flat stock,
           press-fit and welded to the shaft. Stress analysis (FoS 4.72 analytical; 3.57 FEA) and
           Archard's wear analysis (3.63% volume loss per season) both confirm adequate margin. The
           part can be laser-cut locally in Bangladesh. Cost reduction: $85 per unit, 78% down.
-          Corners trimmed to 45° to clear the aluminum inserts — a field fix discovered during
+          Corners trimmed to 45° to clear the aluminum inserts, a field fix discovered during
           assembly.
         </p>
         <figure class="full-figure">
@@ -196,7 +196,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <figure class="full-figure">
         <img src="/acf-teardown.jpeg" alt="Team tearing down the ACF after testing, coal-covered plates and buckets visible" />
-        <figcaption>Post-test teardown — plates and inserts inspected for wear</figcaption>
+        <figcaption>Post-test teardown, plates and inserts inspected for wear</figcaption>
       </figure>
 
       <!-- Results -->
@@ -206,7 +206,7 @@ import Layout from '../../layouts/Layout.astro';
           <tbody>
             <tr>
               <td class="spec-key">Feed Rate</td>
-              <td class="spec-val">5.55&nbsp;g/s mean across 4 outlets (5.03–5.86&nbsp;g/s range) · Requirement: 2–10&nbsp;g/s ✓</td>
+              <td class="spec-val">5.55&nbsp;g/s mean across 4 outlets (5.03 to 5.86&nbsp;g/s range) · Requirement: 2 to 10&nbsp;g/s ✓</td>
             </tr>
             <tr>
               <td class="spec-key">Cost</td>
@@ -222,7 +222,7 @@ import Layout from '../../layouts/Layout.astro';
             </tr>
             <tr>
               <td class="spec-key">Operating Speed</td>
-              <td class="spec-val">2.0–2.4&nbsp;RPM at shaft</td>
+              <td class="spec-val">2.0 to 2.4&nbsp;RPM at shaft</td>
             </tr>
             <tr>
               <td class="spec-key">Coal Condition</td>
@@ -243,7 +243,7 @@ import Layout from '../../layouts/Layout.astro';
       <!-- Team Photo -->
       <figure class="full-figure" style="margin-top: 3rem;">
         <img src="/acf-team.png" alt="Team with assembled ACF: coach Steve Horne, Breno Casciello, William Sayler, Kilas Gallimore, Wooseok Kim, and CA Catalina Melentyev" />
-        <figcaption>With coach Steve Horne (far left) after bench testing. Team (L–R): Horne, Casciello, Sayler, Gallimore, Kim, Melentyev.</figcaption>
+        <figcaption>With coach Steve Horne (far left) after bench testing. Team left to right: Horne, Casciello, Sayler, Gallimore, Kim, Melentyev.</figcaption>
       </figure>
 
     </main>
