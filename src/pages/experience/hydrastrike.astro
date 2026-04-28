@@ -384,16 +384,16 @@ import Layout from '../../layouts/Layout.astro';
   // overview → upper deck → hold → out → sensor mast → hold → out → spider bay → hold → out
   type CamStep = { cx: number; cy: number; cz: number; tx: number; ty: number };
   const camSteps: CamStep[] = [
-    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 0: overview
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty: -0.2  }, // 0: overview
     { cx:  0.3, cy:  0.4, cz: 1.1, tx:  0.3, ty:  0.05 }, // 1: zoom upper deck
     { cx:  0.3, cy:  0.4, cz: 1.1, tx:  0.3, ty:  0.05 }, // 2: hold upper deck (callout)
-    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 3: zoom out
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty: -0.2  }, // 3: zoom out
     { cx: -0.45, cy:  0.45, cz: 1.1,  tx: -0.45, ty: 0.15 }, // 4: zoom to nose/sensor mast
     { cx: -0.45, cy:  0.45, cz: 1.1,  tx: -0.45, ty: 0.15 }, // 5: hold sensor (callout)
-    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 6: zoom out
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty: -0.2  }, // 6: zoom out
     { cx:  0.1, cy: -0.4, cz: 1.1, tx:  0.1, ty: -0.05 }, // 7: zoom spider bay
     { cx:  0.1, cy: -0.4, cz: 1.1, tx:  0.1, ty: -0.05 }, // 8: hold spider bay (callout)
-    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty:  0.0  }, // 9: zoom out
+    { cx:  0.0, cy:  0.5, cz: 2.8, tx:  0.0, ty: -0.2  }, // 9: zoom out
   ];
 
   type CalloutDef = {
