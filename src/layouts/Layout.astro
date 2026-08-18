@@ -1,14 +1,27 @@
+---
+const {
+	title = 'Breno Casciello',
+	description = 'Mechanical engineer. Stanford. I build machines.',
+	theme = 'light',
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={theme}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Breno Casciello</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<slot name="head" />
 	</head>
 	<body>
 		<slot />
@@ -23,7 +36,11 @@
 		margin: 0;
 		padding: 0;
 		background: #fff;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+	html[data-theme='dark'] body {
+		background: #05080d;
 	}
 </style>
