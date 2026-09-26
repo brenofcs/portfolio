@@ -84,6 +84,36 @@ import Layout from '../../layouts/Layout.astro';
         <figcaption>Cross-section: 12V DC motor, 5:1 planetary gearbox, 1/2in shaft coupler, aluminum end plates</figcaption>
       </figure>
 
+      <!-- ── Drawings ── -->
+      <h2 class="section-label" style="margin-top: 2.8rem;">Drawings</h2>
+
+      <p>
+        Every machined part was detailed in Fusion before going to the VF2,
+        dimensioned in inches to ±0.005″ on three-place features.
+      </p>
+
+      <figure class="full-figure drawing">
+        <a href="/autocurtain-dwg-exploded.png" target="_blank" rel="noopener">
+          <img src="/autocurtain-dwg-exploded.png" alt="Exploded assembly drawing with 14 ballooned items: end plates, motor, adapter plate, 5:1 gearbox, spacers, shaft coupler, main body, and fasteners" loading="lazy" />
+        </a>
+        <figcaption>Full assembly, exploded: motor (3) and adapter plate (5) drive the 5:1 gearbox (9), which turns the shaft coupler (11) through the upper plate (12)</figcaption>
+      </figure>
+
+      <div class="image-pair drawing">
+        <figure>
+          <a href="/autocurtain-dwg-body.png" target="_blank" rel="noopener">
+            <img src="/autocurtain-dwg-body.png" alt="Main body drawing: Ø3.00 by 4.93 tube, 20 vent holes, 8x 2-56 tapped holes at each end" loading="lazy" />
+          </a>
+          <figcaption>Main body, 1:2</figcaption>
+        </figure>
+        <figure>
+          <a href="/autocurtain-dwg-lid.png" target="_blank" rel="noopener">
+            <img src="/autocurtain-dwg-lid.png" alt="Upper lid drawing: Ø3.00 by .25 plate, Ø.72 center bore, M4 and 2-56 bolt circles" loading="lazy" />
+          </a>
+          <figcaption>Upper lid, 1:1</figcaption>
+        </figure>
+      </div>
+
       <!-- ── Specs Table ── -->
       <div class="specs-block">
         <div class="specs-label">Key Specifications</div>
@@ -276,6 +306,12 @@ import Layout from '../../layouts/Layout.astro';
     display: block;
     border-radius: 4px;
     background: #f7f7f5;
+  }
+
+  .drawing img {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    cursor: zoom-in;
   }
 
   figcaption {
